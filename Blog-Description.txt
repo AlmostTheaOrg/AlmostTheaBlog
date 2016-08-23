@@ -1,0 +1,44 @@
+Entities description:
+	Album
+-Title
+-Description
+-List<Picture>
+-List<Genre>
+-List<Comment>
+-Date
+-Likes(int)
+-Dislikes(int)
+
+	Picture
+-Raw content(the picture itself)
+-Description
+-Comment
+-Genre
+-Likes(int)
+-Dislikes(int)
+
+	Comment
+-Author
+-Description
+-Date
+-Likes(int)
+-Dislikes(int)
+
+	Genre
+-Type(String)
+
+Specifics:
+The album is a container for multiple pictures(atleast one picture should be available). Every picture has exactly one genre.
+The album has multiple genres because it may contain pictures with different genres.
+Every album will have a header picture(alongside with album's title) which will lead us to album view from which we can se all of album's entities.
+From there we should be able to see all pictures in current album. We should load every single picture view.
+
+Functionalities:
+	Users
+-Normal - can only comment albums and pictures and rank them.
+-Admin - has Normal user rights and it can perform CRUD operations over albums/pictures
+	Search
+- by album/picture title
+
+	Genres section
+- for every available Genre we should display every picture which belongs there.
