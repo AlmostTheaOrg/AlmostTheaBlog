@@ -3,12 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Almost Thea Blog</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+    <header id="site-header">
+        <div id="main-nav-sticky-wrapper" class="sticky-wrapper" style="height: 70px;">
+            <nav class="main-nav" id="main-nav" style="width: 1349px;">
+                <div class="container">
+                    <h2><a href="#"><i class="fa fa-home"></i><span>Home</span></a></h2>
+
+                    <div class="menu-top-menu-container">
+                        <ul class="main-nav-ul">
+                            <li aria-haspopup="true" class="cat-item text-link">
+                                <a href="#">Photos</a>
+                                <div class="sub-menu">
+                                    <div class="container">
+                                        <div class="left">
+                                            <h3>Categories</h3>
+                                            <ul class="sub-nav-ul">
+                                                <li class="cat-item"><a class="text-link" href="#" title="Permalink to Categories">Hair</a></li>
+                                                <li class="cat-item">
+                                                    <a class="text-link" href="#" title="Permalink to How to">How to</a>
+                                                </li>
+                                                <li class="cat-item"><a class="text-link" href="#" title="Permalink to Make-up">Make-up</a></li>
+                                                <li class="cat-item"><a class="text-link" href="#" title="Permalink to New in">New in</a></li>
+                                                <li class="cat-item"><a class="text-link" href="#" title="Permalink to Reviews">Reviews</a></li>
+                                                <li class="cat-item"><a class="text-link" href="#" title="Permalink to Skincare">Skincare</a></li>
+                                                <li><a class="text-link" href="#" title="Permalink to Photos">View all photos</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <form class="quick-search header" action="//www.zoella.co.uk">
+                                            <p>
+                                                <label for="search">Search</label>
+                                                <input type="text" name="s" id="search" value="" placeholder="SEARCH" class="no-focus" maxlength="255">
+                                                <!-- <input type="hidden" name="id" value="89" class=""> -->
+                                                <button type="submit" disabled="" class=""><i class="fa fa-search"></i></button>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--button id="open-search" class="mobile-only"><i class="fa fa-search"></i></button-->
+    </header>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,15 +68,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+
+                    <!--   <li>@Html.ActionLink("About", "About", "Home")</li>
+                       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
+
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <!-- @RenderBody()-->
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
