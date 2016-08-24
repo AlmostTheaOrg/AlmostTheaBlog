@@ -3,17 +3,19 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     public class Photo
     {
         public Photo()
         {
         }
 
-        public Photo(string title, string imagePath, string category)
+        public Photo(string title, string imagePath, string category, string description)
         {
             this.Title = title;
             this.ImagePath = imagePath;
             this.Category = category;
+            this.Description = description;
             this.Comments = new List<Comment>();
             this.Date = DateTime.Now;
         }
@@ -26,6 +28,8 @@
         public string Title { get; set; }
 
         public string ImagePath { get; set; }
+
+        public File Image { get; set; }
 
         public string Category { get; set; }
 
