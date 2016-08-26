@@ -6,8 +6,12 @@
 
     public class Album
     {
+        public Album()
+        {
+            this.Photos = new List<Photo>();
+        }
         [Key]
-        public Guid Id { get; set; }
+        public Guid AlbumId { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -16,10 +20,8 @@
         [StringLength(500)]
         public string Description { get; set; }
 
-       
         public List<Photo> Photos { get; set; }
 
-        [Required]
         public string HeadImagePath { get; set; }
 
         public List<string> Categories { get; set; }

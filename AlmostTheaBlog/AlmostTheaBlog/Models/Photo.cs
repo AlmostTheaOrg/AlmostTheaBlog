@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     public class Photo
     {
         public Photo()
@@ -21,7 +21,7 @@
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid PhotoId { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -29,7 +29,7 @@
 
         public string ImagePath { get; set; }
 
-        public File Image { get; set; }
+        public virtual File Image { get; set; }
 
         public string Category { get; set; }
 
@@ -43,5 +43,13 @@
         public int Likes { get; set; }
 
         public int Dislikes { get; set; }
+
+        public Guid AlbumId;
+
+        [ForeignKey("AlbumId")]
+        public Album Album;
+
+        [NotMapped]
+        public byte[] Content { get; set; }
     }
 }

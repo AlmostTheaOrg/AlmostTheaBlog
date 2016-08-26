@@ -50,9 +50,22 @@
             @Html.DisplayFor(model => model.Dislikes)
         </dd>
 
+        @if (Model.Photos != null)
+        {
+            <dt>
+                Photos
+            </dt>
+            foreach (var photo in @Model.Photos)
+            {
+                <dd>
+                    <img src="~/File?id=@photo.Image.FileId" alt="image" />
+                </dd>
+            }
+        }
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

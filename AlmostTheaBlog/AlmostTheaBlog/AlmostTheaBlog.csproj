@@ -205,12 +205,42 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608250411183_InitialCreate.cs" />
+    <Compile Include="Migrations\201608250411183_InitialCreate.Designer.cs">
+      <DependentUpon>201608250411183_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608250421026_Files.cs" />
+    <Compile Include="Migrations\201608250421026_Files.Designer.cs">
+      <DependentUpon>201608250421026_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608251902155_albumId.cs" />
+    <Compile Include="Migrations\201608251902155_albumId.Designer.cs">
+      <DependentUpon>201608251902155_albumId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608251906030_albumsid.cs" />
+    <Compile Include="Migrations\201608251906030_albumsid.Designer.cs">
+      <DependentUpon>201608251906030_albumsid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608251909051_albumsid1.cs" />
+    <Compile Include="Migrations\201608251909051_albumsid1.Designer.cs">
+      <DependentUpon>201608251909051_albumsid1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608251914464_reverseAlbum.cs" />
+    <Compile Include="Migrations\201608251914464_reverseAlbum.Designer.cs">
+      <DependentUpon>201608251914464_reverseAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608260414061_albumRequiredDeleted.cs" />
+    <Compile Include="Migrations\201608260414061_albumRequiredDeleted.Designer.cs">
+      <DependentUpon>201608260414061_albumRequiredDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -299,6 +329,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Upload_Files\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -306,6 +337,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608250411183_InitialCreate.resx">
+      <DependentUpon>201608250411183_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608250421026_Files.resx">
+      <DependentUpon>201608250421026_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608251902155_albumId.resx">
+      <DependentUpon>201608251902155_albumId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608251906030_albumsid.resx">
+      <DependentUpon>201608251906030_albumsid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608251909051_albumsid1.resx">
+      <DependentUpon>201608251909051_albumsid1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608251914464_reverseAlbum.resx">
+      <DependentUpon>201608251914464_reverseAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608260414061_albumRequiredDeleted.resx">
+      <DependentUpon>201608260414061_albumRequiredDeleted.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

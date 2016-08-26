@@ -184,3 +184,11 @@ D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\bin\ru\Flue
 D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\bin\sv\FluentValidation.resources.dll
 D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\bin\tr\FluentValidation.resources.dll
 D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\bin\zh-CN\FluentValidation.resources.dll
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.InitialCreate.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.csproj.GenerateResource.Cache
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.Files.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.albumId.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.albumsid.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.albumsid1.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.reverseAlbum.resources
+D:\СофтУни\Study\TheaBlog\trunk\AlmostTheaBlog\AlmostTheaBlog\obj\Debug\AlmostTheaBlog.Migrations.albumRequiredDeleted.resources

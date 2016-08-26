@@ -5,7 +5,7 @@
     using System.Net;
     using System.Web.Mvc;
     using AlmostTheaBlog.Models;
-
+    using System;
     public class AlbumsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,13 +17,13 @@
         }
 
         // GET: Albums/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
+            Album album = db.Albums.Include(a => a.Photos).SingleOrDefault(a => a.AlbumId == id);
             if (album == null)
             {
                 return HttpNotFound();
@@ -44,6 +44,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Description,Date,Likes,Dislikes")] Album album)
         {
+            album.Date = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Albums.Add(album);
@@ -55,7 +56,7 @@
         }
 
         // GET: Albums/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -86,7 +87,7 @@
         }
 
         // GET: Albums/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -103,7 +104,7 @@
         // POST: Albums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Album album = db.Albums.Find(id);
             db.Albums.Remove(album);
