@@ -22,3 +22,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.modelName {
+    font-size: 150%;
+}
+
+.photo {
+    display: inline-block;
+    border: 3px solid black;
+    background: #eee;
+}
+
+.photo>div {
+    margin: 15px;
+}
+
+img {
+    width:200px;
+    height: 200px;   
+}
+
+img.image-edit {
+    width:auto;
+    height: auto;
+}

@@ -10,7 +10,7 @@
 @using (Html.BeginForm("Edit", "Photos", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Photo</h4>
         <hr />
@@ -56,7 +56,7 @@
             <div class="form-group">
                 <span class="control-label col-md-2"><strong>Current Image</strong></span>
                 <div class="col-md-10">
-                    <img src="~/Files?id=@Model.Image.FileId" alt="image" />
+                    <img class="image-edit" src="~/Files?id=@Model.Image.FileId" alt="image" />
                 </div>
             </div>
         }
@@ -70,7 +70,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="    " class="btn btn-default" />
             </div>
         </div>
     </div>
