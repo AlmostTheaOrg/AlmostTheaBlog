@@ -29,7 +29,7 @@
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photos.Include(path => path.Image).SingleOrDefault(p => p.PhotoId == id);
+            Photo photo = db.Photos.Include(p => p.Image).Include(p => p.Album).SingleOrDefault(p => p.PhotoId == id);
             if (photo == null)
             {
                 return HttpNotFound();
@@ -188,6 +188,13 @@
             db.Photos.Remove(photo);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddComment(Guid? id)
+        {
+
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)

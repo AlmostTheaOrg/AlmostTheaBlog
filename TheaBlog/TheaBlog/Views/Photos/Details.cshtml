@@ -7,18 +7,39 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Photo</h4>
+    <h4>@Model.Title</h4>
     <hr />
     <dl class="dl-horizontal">
         @if (Model.Image!= null)
         {
-            <dt>
+            <dt><br>
                 Photo
             </dt>
             <dd>
                 <img src="~/Files?id=@Model.Image.FileId" alt="image" />
             </dd>
         }
+
+
+        @if (Model.Comments != null)
+        {
+            foreach (var comment in Model.Comments)
+            {
+                <dd>
+                    <div>@comment.Author.UserName</div> 
+                    <div>@comment.Date</div>
+                    <br/>
+                    <div>@comment.Description</div>
+                </dd>
+            }
+        }
+
+        <dd>
+            <form>
+                <input type="text" name="AddComment" placeholder="Add comment ..." />
+                <input type="submit" name="Submit" value="Submit" class="btn btn-default" />
+            </form>
+        </dd>
     </dl>
 </div>
 <p>
