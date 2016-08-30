@@ -19,5 +19,7 @@
         public System.Data.Entity.DbSet<TheaBlog.Models.Photo> Photos { get; set; }
 
         public System.Data.Entity.DbSet<TheaBlog.Models.File> Files { get; set; }
+
+        public System.Data.Entity.DbSet<TheaBlog.Models.Comment> Comments { get; set; }
     }
 }

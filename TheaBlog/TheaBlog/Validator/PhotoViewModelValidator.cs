@@ -3,9 +3,6 @@
 namespace TheaBlog.Validator
 {
     using FluentValidation;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Web;
     using TheaBlog.Models;
 
@@ -30,12 +27,6 @@ namespace TheaBlog.Validator
                .WithMessage("Description required!")
                .Length(0, 500)
                .WithMessage($"Description must be below {500} characters!");
-
-            RuleFor(m => m.Description)
-               .NotEmpty()
-               .WithMessage("Description required!")
-               .Length(0, 500)
-               .WithMessage($"Last name must be below {500} characters!");
 
             RuleFor(m => m.Image)
                 .NotNull()

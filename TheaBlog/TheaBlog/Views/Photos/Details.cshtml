@@ -25,21 +25,12 @@
         {
             foreach (var comment in Model.Comments)
             {
-                <dd>
-                    <div>@comment.Author.UserName</div> 
-                    <div>@comment.Date</div>
-                    <br/>
-                    <div>@comment.Description</div>
-                </dd>
+                @Html.Partial("CommentDetailsPartialView", new CommentDetailsViewModel(comment))
             }
         }
 
-        <dd>
-            <form>
-                <input type="text" name="AddComment" placeholder="Add comment ..." />
-                <input type="submit" name="Submit" value="Submit" class="btn btn-default" />
-            </form>
-        </dd>
+        @Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())
+       
     </dl>
 </div>
 <p>
