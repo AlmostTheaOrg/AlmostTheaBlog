@@ -30,9 +30,10 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
+        <dd>
+            <div class="edit">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+            </div>
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-</p>

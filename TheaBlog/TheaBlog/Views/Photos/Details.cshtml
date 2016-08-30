@@ -20,17 +20,19 @@
             </dd>
         }
 
-
-        @if (Model.Comments != null)
-        {
-            foreach (var comment in Model.Comments)
+        
+            @if (Model.Comments != null)
             {
-                @Html.Partial("CommentDetailsPartialView", new CommentDetailsViewModel(comment))
+                foreach (var comment in Model.Comments)
+                {
+                    <div class="comments">
+                        @Html.Partial("CommentDetailsPartialView", new CommentDetailsViewModel(comment))
+                    </div>
+                }
             }
-        }
 
-        @Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())
-       
+            <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())</div>
+        
     </dl>
 </div>
 <p>
