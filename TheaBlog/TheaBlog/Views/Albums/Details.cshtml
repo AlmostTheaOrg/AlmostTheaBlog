@@ -8,8 +8,8 @@
 
 <div>
     <h4>Album</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    @*<hr />*@
+    @*<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -39,15 +39,57 @@
             <dt>
                 Photos
             </dt>
+            
             foreach (var photo in @Model.Photos)
             {
-                <dd>
-                    <img src="~/Files?id=@photo.Image.FileId" alt="image" />
-                </dd>
+                <div class="album-photo">
+                    <img class="album-photo" src="~/Files?id=@photo.Image.FileId" alt="image" />
+                </div>
             }
         }
 
-    </dl>
+    </dl>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+             <td>
+                   @Html.DisplayFor(model => model.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Date)
+            </td>
+        </tr>
+        
+    </table>
+        <div class="row">
+            @if (Model.Photos != null)
+            {
+                foreach (var photo in @Model.Photos)
+                {
+                    <div class="album-photo">
+
+                        <div>
+                            <img src="~/Files?id=@photo.Image.FileId" alt="image" />
+                        </div>
+                    </div>
+                }
+            }
+        </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |

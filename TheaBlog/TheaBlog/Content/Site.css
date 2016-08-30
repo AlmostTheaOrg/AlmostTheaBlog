@@ -46,3 +46,11 @@ img.image-edit {
     width:auto;
     height: auto;
 }
+
+.album-photo {
+     display: inline-block;
+}
+
+.album-photo>div {
+    margin: 15px;
+}
