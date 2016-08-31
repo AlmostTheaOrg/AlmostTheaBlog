@@ -19,21 +19,19 @@
                 <img class="image-edit" src="~/Files?id=@Model.Image.FileId" alt="image" />
             </dd>
         }
-
-        
-            @if (Model.Comments != null)
+    </dl>
+    @if (Model.Comments != null)
             {
                 foreach (var comment in Model.Comments)
                 {
-                    <div class="comments">
-                        @Html.Partial("CommentDetailsPartialView", new CommentDetailsViewModel(comment))
-                    </div>
-                }
-            }
+            <div class="comments">
+                @Html.Partial("CommentDetailsPartialView", new CommentDetailsViewModel(comment))
+            </div>
+        }
+    }
 
-            <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())</div>
-        
-    </dl>
+    <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())</div>
+    @*<div>@Html.Action("Create","Comments")</div>*@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoId }) |

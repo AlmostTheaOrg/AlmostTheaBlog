@@ -148,6 +148,7 @@
                         File oldImage = this.db.Files.SingleOrDefault(f => f.PhotoId == photo.PhotoId);
                         photo.Image = oldImage;
                     }
+
                     Album album = db.Albums.Find(photo.AlbumId);
                     photo.Album = album;
                     db.Entry(photo).State = EntityState.Modified;

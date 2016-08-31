@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using TheaBlog.Models;
-
-namespace TheaBlog.Controllers
+﻿namespace TheaBlog.Controllers
 {
+    using System.Web.Mvc;
+    using TheaBlog.Models;
+
     public class FilesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
