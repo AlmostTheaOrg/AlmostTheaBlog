@@ -97,7 +97,6 @@
 
             CommentEditViewModel commentEditVM = new CommentEditViewModel(comment);
 
-            // ViewBag.PhotoId = new SelectList(db.Photos, "PhotoId", "Title", comment.PhotoId);
             return View(commentEditVM);
         }
 
@@ -125,7 +124,6 @@
                 return RedirectToAction("Details", "Photos", new { id = comment.PhotoId });
             }
 
-            // ViewBag.PhotoId = new SelectList(db.Photos, "PhotoId", "Title", comment.PhotoId);
             return View(commentVM);
         }
 
@@ -158,7 +156,7 @@
             db.Comments.Remove(comment);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Photos", new { id = comment.PhotoId });
         }
 
         protected override void Dispose(bool disposing)
