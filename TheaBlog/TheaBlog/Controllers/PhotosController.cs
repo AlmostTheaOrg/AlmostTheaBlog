@@ -74,10 +74,10 @@
                     {
                         FileName = System.IO.Path.GetFileName(uploadedImage.FileName),
                         ContentType = uploadedImage.ContentType,
-                        PhotoId = photoId
                     };
 
-                    SaveImage(uploadedImage, file);
+                    file.Content = GetFileContent(uploadedImage);
+                    file.FileLength = uploadedImage.ContentLength;
                 }
 
                 Photo photo = new Photo();
@@ -85,6 +85,7 @@
                 photo.Category = photoViewModel.Category;
                 photo.Description = photoViewModel.Description;
                 photo.Image = file;
+                photo.FileId = photo.Image.FileId;
                 photo.Date = DateTime.Now;
                 photo.PhotoId = photoId;
 
@@ -124,7 +125,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PhotoId,Title,Category,AlbumId,Description,Date")] Photo photo, HttpPostedFileBase uploadedImage)
+        public ActionResult Edit([Bind(Include = "PhotoId,Title,Category,AlbumId,FileId,Description,Date")] Photo photo, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
@@ -138,24 +139,14 @@
                             db.Files.Remove(photo.Image);
                         }
 
-                        var newImage = new File
-                        {
-                            FileName = System.IO.Path.GetFileName(uploadedImage.FileName),
-                            ContentType = uploadedImage.ContentType,
-                            PhotoId = photo.PhotoId
-                        };
-
-                        SaveImage(uploadedImage, newImage);
-                        photo.Image = newImage;
+                        File image = this.db.Files.SingleOrDefault(f => f.FileId == photo.FileId);
+                        image.Content = GetFileContent(uploadedImage);
+                        image.FileLength = uploadedImage.ContentLength;
                     }
-                    else
-                    {
-                        File oldImage = this.db.Files.SingleOrDefault(f => f.PhotoId == photo.PhotoId);
-                        photo.Image = oldImage;
-                    }
-
+                    
                     Album album = db.Albums.Find(photo.AlbumId);
                     photo.Album = album;
+
                     db.Entry(photo).State = EntityState.Modified;
                     db.SaveChanges();
 
@@ -163,7 +154,6 @@
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {
-                    //Log the error (uncomment dex variable name and add a line here to write a log.
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
@@ -205,13 +195,13 @@
             base.Dispose(disposing);
         }
 
-        private static void SaveImage(HttpPostedFileBase uploadedImage, File file)
+        private static byte[] GetFileContent(HttpPostedFileBase uploadedImage)
         {
             Image image = Image.FromStream(uploadedImage.InputStream, true, true);
             System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
             image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            file.Content = memoryStream.ToArray();
+            return memoryStream.ToArray();
         }
 
         private IEnumerable<SelectListItem> GetAllAlbums()

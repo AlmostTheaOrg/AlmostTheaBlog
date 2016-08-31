@@ -19,6 +19,9 @@
         [StringLength(200)]
         public string Title { get; set; }
 
+        public int FileId { get; set; }
+
+        [ForeignKey("FileId")]
         public virtual File Image { get; set; }
 
         public string Category { get; set; }
