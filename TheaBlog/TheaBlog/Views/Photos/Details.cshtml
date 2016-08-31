@@ -32,10 +32,20 @@
         }
     }
 
-    <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel(Model.PhotoId))</div>
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel(Model.PhotoId))</div>
+
+    }
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoId }) |
+    @if (this.User.IsInRole("Administrator"))
+    {
+        <div class="edit">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoId })
+        </div>
+    }
+
     @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("Back to Album", "Details", "Albums", new { id = Model.AlbumId }, new { })
 </p>

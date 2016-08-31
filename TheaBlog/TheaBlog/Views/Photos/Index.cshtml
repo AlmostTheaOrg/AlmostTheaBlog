@@ -4,10 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (this.User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 
 <div class="row">
@@ -42,9 +44,17 @@
                 <span>@Html.DisplayFor(modelItem => item.Date)</span>
             </div>
             <div>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PhotoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PhotoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PhotoId })
+                @if (this.User.IsInRole("Administrator"))
+                {
+                    <div class="edit">@Html.ActionLink("Edit", "Edit", new { id = item.PhotoId })</div>
+                }
+
+                <div class="edit">@Html.ActionLink("Details", "Details", new { id = item.PhotoId })</div>
+                
+                @if (this.User.IsInRole("Administrator"))
+                {
+                    <div class="edit">@Html.ActionLink("Delete", "Delete", new { id = item.PhotoId })</div>
+                }
             </div>
         </div>
     }
