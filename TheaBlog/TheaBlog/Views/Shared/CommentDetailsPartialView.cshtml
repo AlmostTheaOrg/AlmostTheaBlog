@@ -32,7 +32,16 @@
         </dd>
         <dd>
             <div class="edit">
-                @Html.ActionLink("Edit", "Edit", "Comments",new { id = Model.Id }, null)
+                @if (this.User.Identity.Name == this.Model.Author)
+                {
+                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)
+                     @:|
+                }
+
+                @if (this.User.Identity.Name == this.Model.Author || this.User.IsInRole("Administrator"))
+                {
+                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = Model.Id }, null)
+                }
             </div>
         </dd>
     </dl>
