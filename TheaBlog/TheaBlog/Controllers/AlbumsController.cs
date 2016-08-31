@@ -68,11 +68,13 @@
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Album album = db.Albums.Find(id);
             if (album == null)
             {
                 return HttpNotFound();
             }
+
             return View(album);
         }
 
@@ -81,7 +83,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,Date")] Album album)
+        public ActionResult Edit([Bind(Include = "AlbumId,Title,Description,Date")] Album album)
         {
             if (ModelState.IsValid)
             {

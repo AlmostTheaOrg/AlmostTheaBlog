@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheaBlog.Models
+namespace TheaBlog.Models.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

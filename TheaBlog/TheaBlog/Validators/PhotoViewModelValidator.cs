@@ -1,10 +1,9 @@
-﻿
-
-namespace TheaBlog.Validator
+﻿namespace TheaBlog.Validators
 {
-    using FluentValidation;
     using System.Web;
-    using TheaBlog.Models;
+
+    using FluentValidation;
+    using TheaBlog.Models.ViewModels;
 
     public class PhotoViewModelValidator : AbstractValidator<CreatePhotoViewModel>
     {

@@ -223,15 +223,17 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ViewModels\CommentDetailsViewModel.cs" />
     <Compile Include="Models\ViewModels\CommentCreateViewModel.cs" />
+    <Compile Include="Models\ViewModels\CommentEditViewModel.cs" />
     <Compile Include="Models\ViewModels\CreatePhotoViewModel.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Validator\CommentViewModelValidator.cs" />
-    <Compile Include="Validator\ImagePropertyValidator.cs" />
-    <Compile Include="Validator\PhotoViewModelValidator.cs" />
+    <Compile Include="Validators\CommentEditViewModelValidator.cs" />
+    <Compile Include="Validators\CommentViewModelValidator.cs" />
+    <Compile Include="Validators\ImagePropertyValidator.cs" />
+    <Compile Include="Validators\PhotoViewModelValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

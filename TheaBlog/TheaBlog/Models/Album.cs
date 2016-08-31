@@ -1,13 +1,8 @@
-﻿
-
-namespace TheaBlog.Models
+﻿namespace TheaBlog.Models
 {
-    using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
 
     public class Album
     {
@@ -15,7 +10,9 @@ namespace TheaBlog.Models
         {
             this.Photos = new List<Photo>();
             this.Comments = new List<Comment>();
+            this.Date = DateTime.Now;
         }
+
         [Key]
         public Guid AlbumId { get; set; }
 

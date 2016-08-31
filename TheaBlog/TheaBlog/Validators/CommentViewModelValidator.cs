@@ -1,7 +1,7 @@
-﻿namespace TheaBlog.Validator
+﻿namespace TheaBlog.Validators
 {
     using FluentValidation;
-    using Models;
+    using Models.ViewModels;
 
     public class CommentViewModelValidator : AbstractValidator<CommentCreateViewModel>
     {

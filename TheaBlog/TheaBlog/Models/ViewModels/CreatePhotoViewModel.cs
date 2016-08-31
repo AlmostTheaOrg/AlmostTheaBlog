@@ -1,13 +1,12 @@
-﻿namespace TheaBlog.Models
+﻿namespace TheaBlog.Models.ViewModels
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+
     public class CreatePhotoViewModel
     {
         [Required(ErrorMessage = "Title needed.")]

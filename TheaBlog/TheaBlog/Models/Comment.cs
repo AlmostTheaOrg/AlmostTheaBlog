@@ -12,12 +12,11 @@
             this.Date = DateTime.Now;
         }
 
-        public Comment(Guid id, string authorId, string description, Guid photoId)
+        public Comment(Guid id, string authorId, string description, Guid photoId) : this()
         {
             this.Id = id;
             this.AuthorId = authorId;
             this.Description = description;
-            this.Date = DateTime.Now;
             this.PhotoId = photoId;
         }
 

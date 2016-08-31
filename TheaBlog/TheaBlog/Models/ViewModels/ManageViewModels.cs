@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-
-namespace TheaBlog.Models
+﻿namespace TheaBlog.Models.ViewModels
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
+
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

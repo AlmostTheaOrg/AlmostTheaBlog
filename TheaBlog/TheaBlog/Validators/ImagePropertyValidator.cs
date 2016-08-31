@@ -1,13 +1,11 @@
-﻿namespace TheaBlog.Validator
+﻿namespace TheaBlog.Validators
 {
-    using FluentValidation.Validators;
-    using System;
-    using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
-    using System.Linq;
     using System.Web;
 
+    using FluentValidation.Validators;
+    
     public class ImagePropertyValidator<T> : PropertyValidator
     {
         public ImagePropertyValidator() : base("Image property not valid!")

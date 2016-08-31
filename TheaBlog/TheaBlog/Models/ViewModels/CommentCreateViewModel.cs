@@ -1,4 +1,4 @@
-﻿namespace TheaBlog.Models
+﻿namespace TheaBlog.Models.ViewModels
 {
     using System;
 

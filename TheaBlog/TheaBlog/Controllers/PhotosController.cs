@@ -9,8 +9,12 @@
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
+
     using TheaBlog.Models;
-    using Validator;
+    using TheaBlog.Models.ViewModels;
+
+    using Validators;
+
     public class PhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
