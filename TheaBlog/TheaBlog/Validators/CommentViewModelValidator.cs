@@ -3,9 +3,9 @@
     using FluentValidation;
     using Models.ViewModels;
 
-    public class CommentViewModelValidator : AbstractValidator<CommentCreateViewModel>
+    public class CommentCreateViewModelValidator : AbstractValidator<CommentCreateViewModel>
     {
-        public CommentViewModelValidator()
+        public CommentCreateViewModelValidator()
         {
             RuleFor(m => m.Description)
              .NotEmpty()
@@ -13,17 +13,11 @@
              .Length(0, 500)
              .WithMessage($"Description must be below {500} characters!");
 
-            RuleFor(m => m.PhotoId)
+            RuleFor(m => m.EntityId)
                 .NotNull()
                 .WithMessage("Comment photo bind cannot be null!")
                 .NotEmpty()
                 .WithMessage("Comment must be binded to valid photo!");
-
-            RuleFor(m => m.AuthorId)
-                .NotNull()
-                .WithMessage("Comment's author cannot be null!")
-                .NotEmpty()
-                .WithMessage("Comment must have valid author!");
         }
     }
 }

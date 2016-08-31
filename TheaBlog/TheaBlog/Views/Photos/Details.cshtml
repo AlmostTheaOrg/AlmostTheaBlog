@@ -31,8 +31,7 @@
         }
     }
 
-    <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel())</div>
-    @*<div>@Html.Action("Create","Comments")</div>*@
+    <div>@Html.Partial("CommentCreatePartialView", new CommentCreateViewModel(Model.PhotoId))</div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoId }) |

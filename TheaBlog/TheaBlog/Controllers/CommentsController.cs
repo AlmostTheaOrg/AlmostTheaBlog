@@ -57,18 +57,18 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "Id,Date,Description,PhotoId,AuthorId")] CommentCreateViewModel commentViewModel)
+        public ActionResult Create([Bind(Include = "Id,Date,Description,EntityId,AuthorId")] CommentCreateViewModel commentViewModel)
         {
             this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
             var user = UserManager.FindById(User.Identity.GetUserId());
             commentViewModel.AuthorId = user.Id;
 
-            var commentValidator = new CommentViewModelValidator();
+            var commentValidator = new CommentCreateViewModelValidator();
             var isModelValid = commentValidator.Validate(commentViewModel).IsValid;
             if (isModelValid)
             {
                 Guid commentId = Guid.NewGuid();
-                Comment comment = new Comment(commentId, commentViewModel.AuthorId, commentViewModel.Description, commentViewModel.PhotoId);
+                Comment comment = new Comment(commentId, commentViewModel.AuthorId, commentViewModel.Description, commentViewModel.EntityId);
 
                 db.Comments.Add(comment);
                 db.SaveChanges();
