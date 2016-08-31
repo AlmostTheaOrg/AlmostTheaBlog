@@ -22,7 +22,7 @@
         [Required(ErrorMessage = "Photo must have a category!")]
         [StringLength(100)]
         [DisplayName("Category")]
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
 
         [Required(ErrorMessage = "Photo description might be useful!")]
         [StringLength(500)]

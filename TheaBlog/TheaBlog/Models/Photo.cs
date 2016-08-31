@@ -24,7 +24,11 @@
         [ForeignKey("FileId")]
         public virtual File Image { get; set; }
 
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
+
+        // ToDo: Make required.
+        [ForeignKey("CategoryName")]       
+        public Category Category { get; set; }
 
         [Required]
         public DateTime Date { get; set; }

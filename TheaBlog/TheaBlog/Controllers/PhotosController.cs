@@ -33,15 +33,18 @@
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Photo photo = db.Photos.Include(p => p.Image).Include(p => p.Album).Include(p => p.Comments).Include(p => p.Comments.Select(c => c.Author)).SingleOrDefault(p => p.PhotoId == id);
             if (photo == null)
             {
                 return HttpNotFound();
             }
+
             return View(photo);
         }
 
         // GET: Photos/Create
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             CreatePhotoViewModel photoViewModel = new CreatePhotoViewModel()
@@ -57,7 +60,8 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Category,Description,SelectedAlbumId")] CreatePhotoViewModel photoViewModel, HttpPostedFileBase uploadedImage)
+        [Authorize(Roles = "Administrator")]
+        public ActionResult Create([Bind(Include = "Title,CategoryName,Description,SelectedAlbumId")] CreatePhotoViewModel photoViewModel, HttpPostedFileBase uploadedImage)
         {
             photoViewModel.Image = uploadedImage;
             PhotoViewModelValidator validator = new PhotoViewModelValidator();
@@ -82,7 +86,18 @@
 
                 Photo photo = new Photo();
                 photo.Title = photoViewModel.Title;
-                photo.Category = photoViewModel.Category;
+                Category category = null;
+                if (db.Categories.Any(c => c.Name == photoViewModel.CategoryName))
+                {
+                    category = db.Categories.SingleOrDefault( c => c.Name == photoViewModel.CategoryName);
+                }
+                else
+                {
+                    category = new Category(photoViewModel.CategoryName);
+                    //db.Categories.Add(category);
+                }
+
+                photo.Category = category;
                 photo.Description = photoViewModel.Description;
                 photo.Image = file;
                 photo.FileId = photo.Image.FileId;
@@ -105,6 +120,7 @@
         }
 
         // GET: Photos/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -125,7 +141,8 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PhotoId,Title,Category,AlbumId,FileId,Description,Date")] Photo photo, HttpPostedFileBase uploadedImage)
+        [Authorize(Roles = "Administrator")]
+        public ActionResult Edit([Bind(Include = "PhotoId,Title,CategoryName,AlbumId,FileId,Description,Date")] Photo photo, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +160,12 @@
                         image.Content = GetFileContent(uploadedImage);
                         image.FileLength = uploadedImage.ContentLength;
                     }
-                    
+
+                    if (!db.Categories.Any(c => c.Name == photo.CategoryName))
+                    {
+                        db.Categories.Add(new Category(photo.CategoryName));
+                    }
+
                     Album album = db.Albums.Find(photo.AlbumId);
                     photo.Album = album;
 
@@ -161,6 +183,7 @@
         }
 
         // GET: Photos/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -176,8 +199,9 @@
         }
 
         // POST: Photos/Delete/5
-        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(Guid id)
         {
             Photo photo = db.Photos.Find(id);

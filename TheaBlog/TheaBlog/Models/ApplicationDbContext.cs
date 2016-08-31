@@ -21,5 +21,8 @@
         public System.Data.Entity.DbSet<TheaBlog.Models.File> Files { get; set; }
 
         public System.Data.Entity.DbSet<TheaBlog.Models.Comment> Comments { get; set; }
+
+        public System.Data.Entity.DbSet<TheaBlog.Models.Category> Categories { get; set; }
+
     }
 }

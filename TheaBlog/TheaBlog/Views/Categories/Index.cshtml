@@ -8,9 +8,9 @@
 
 @foreach (var item in Model)
 {
-    <td>
+    <div>
         @Html.DisplayFor(modelItem => item.Name)
-    </td>
+    </div>
 
     foreach (var photo in item.Photos)
     {

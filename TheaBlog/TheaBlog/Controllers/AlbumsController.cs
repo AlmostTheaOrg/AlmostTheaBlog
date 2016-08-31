@@ -36,6 +36,7 @@
         }
 
         // GET: Albums/Create
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +47,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create([Bind(Include = "Id,Title,Description,Date")] Album album)
         {
             album.Date = DateTime.Now;
@@ -62,6 +64,7 @@
         }
 
         // GET: Albums/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -83,6 +86,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit([Bind(Include = "AlbumId,Title,Description,Date")] Album album)
         {
             if (ModelState.IsValid)
@@ -110,8 +114,9 @@
         }
 
         // POST: Albums/Delete/5
-        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(Guid id)
         {
             Album album = db.Albums.Find(id);

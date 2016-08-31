@@ -15,7 +15,7 @@
                  .Length(3, 100)
                  .WithMessage($"Title must between {3} and {100} characters!");
 
-            RuleFor(m => m.Category)
+            RuleFor(m => m.CategoryName)
                  .NotEmpty()
                  .WithMessage("Category required!")
                  .Length(3, 100)
