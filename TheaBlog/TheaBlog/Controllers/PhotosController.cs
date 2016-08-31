@@ -74,7 +74,6 @@
                     {
                         FileName = System.IO.Path.GetFileName(uploadedImage.FileName),
                         ContentType = uploadedImage.ContentType,
-                        PhotoId = photoId
                     };
 
                     file.Content = GetFileContent(uploadedImage);
