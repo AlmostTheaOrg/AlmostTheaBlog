@@ -141,7 +141,8 @@
                         var newImage = new File
                         {
                             FileName = System.IO.Path.GetFileName(uploadedImage.FileName),
-                            ContentType = uploadedImage.ContentType
+                            ContentType = uploadedImage.ContentType,
+                            PhotoId = photo.PhotoId
                         };
 
                         SaveImage(uploadedImage, newImage);
