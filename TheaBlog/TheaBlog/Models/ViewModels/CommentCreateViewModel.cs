@@ -6,6 +6,10 @@
     {
         public CommentCreateViewModel()
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 297f4383976d4129b04ba46235b39519b3ae7172
         }
 
         public CommentCreateViewModel(Guid entityId)
