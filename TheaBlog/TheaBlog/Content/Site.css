@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url(http://f.cl.ly/items/2u1z0Y0I1U061j410F08/debut_light.png);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -68,12 +69,126 @@ dd>div {
 
 div.edit {
     float: right;
-    padding: 3px;
-    margin-top: 5px;
+    padding: 5px;
+    margin: 3px;
     border: 3px solid black;
     background: white;  
 }
 
 div.edit:hover {
     border: 3px solid blue;
+}
+
+/*.album {
+     display: inline-block;
+}*/
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+section {
+  max-width: 1000px;
+  margin: 2.6em auto;
+  padding: 0 4%;
+}
+h1 {
+  font: normal 1.8em/1.3 Capita, Georgia, serif;
+  margin: 0 0 1.2em;
+  color: #8ab300;
+}
+.photo-stack-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.photo-stack-grid:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.photo-stack-grid li {
+  width: 46%;
+  float: left;
+  margin: 0 8% 2.8em 0;
+}
+.photo-stack-grid li:nth-child(2n) {
+  margin-right: 0;
+}
+
+/* remember to clear first item in each row */
+.photo-stack-grid li:nth-child(2n + 1) {
+  clear: left;
+}
+
+.photo-stack-grid a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font: 600 0.8em/1.3 "Open Sans", sans-serif;
+  
+}
+
+.photo-stack {
+	position: relative;
+	margin: 0 4% 2em;
+  display: block;
+}
+.photo-stack:before,
+.photo-stack:after,
+.photo-stack img {
+	display: block;
+	background: #ccc;
+	border: 5px solid #fff;
+  border-radius: 3px;
+	padding: 1px;
+	
+}
+.photo-stack:before,
+.photo-stack:after {
+  content: '';
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #969289;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  transform: rotate(6deg);
+}
+.photo-stack:after {
+	transform: rotate(10deg);
+  z-index: -1;
+}
+.photo-stack img {
+	transform: rotate(0deg);
+	width: 100%;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2),
+              0 14px 18px -12px rgba(0, 0, 0, 0.9);
+}
+.ie8 .photo-stack:before,
+.ie8 .photo-stack:after {
+	display: none;
+}
+
+@media (min-width: 620px) {
+    
+    .photo-stack-grid li {
+      width: 19%;
+    }
+    .photo-stack-grid li:nth-child(2n) {
+      margin-right: 8%;
+    }
+    .photo-stack-grid li:nth-child(2n + 1) {
+      clear: none;
+    }
+    .photo-stack-grid li:nth-child(4n) {
+      margin-right: 0;
+    }
+    .photo-stack-grid li:nth-child(4n + 1) {
+      clear: left;
+    }
 }

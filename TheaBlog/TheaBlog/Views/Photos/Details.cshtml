@@ -47,5 +47,6 @@
     }
 
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Back to Album", "Details", "Albums", new { id = Model.AlbumId }, new { })
+    @Html.ActionLink("Back to Album", "Details", "Albums", new { id = Model.AlbumId }, new { }) |
+    @Html.ActionLink("Back to Category (" + @Model.CategoryName + ")", "Details", "Categories", new { name = Model.CategoryName }, new { })
 </p>

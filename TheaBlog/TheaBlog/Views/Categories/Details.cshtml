@@ -1,0 +1,34 @@
+﻿@model TheaBlog.Models.Category
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Category: @Model.Name</h4>
+    
+    <div class="row">
+        @if (Model.Photos != null)
+            {
+                foreach (var photo in @Model.Photos)
+                {
+                <div class="album-photo">
+
+                    <div>
+                        <a href="../../Photos/Details/@photo.PhotoId"><img src="~/Files?id=@photo.Image.FileId" alt="image" /></a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to Category", "Index", new { })
+</p>
+
+@*@foreach (var photo in Model.Photos)
+    {
+        <dd>
+             <img src="~/Files?id=@photo.Image.FileId" alt="image" />
+        </dd>
+    }*@

@@ -6,16 +6,24 @@
 
 <h2>Index</h2>
 
-@foreach (var item in Model)
-{
-    <div>
-        @Html.DisplayFor(modelItem => item.Name)
-    </div>
+<section>
 
-    foreach (var photo in item.Photos)
-    {
-        <dd>
-            <img src="~/Files?id=@photo.Image.FileId" alt="image" />
-        </dd>
-    }
-}
+    <ul class="photo-stack-grid">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a href="/Categories/Details?name=@category.Name">
+                    <figure class="photo-stack">
+                        <!--
+                        ***change aspect ratio of image - /200/400***
+                        -->
+                        <img src="~/Files?id=@category.Photos.Last().FileId" alt="picture" />
+
+                    </figure>
+                    <span>@Html.ActionLink(@category.Name, "Details", new { name = category.Name})</span>
+                </a>
+            </li>
+        }
+
+    </ul>
+</section>

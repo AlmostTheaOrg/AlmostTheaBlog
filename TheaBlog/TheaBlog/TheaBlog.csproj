@@ -313,6 +313,7 @@
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Shared\CommentCreatePartialView.cshtml" />
     <Content Include="Views\Shared\CommentDetailsPartialView.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
