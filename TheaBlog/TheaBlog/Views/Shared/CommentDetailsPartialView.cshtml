@@ -31,18 +31,20 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dd>
-            <div class="edit">
                 @if (this.User.Identity.Name == this.Model.Author)
                 {
-                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)
-                     @:|
+                    <div class="edit">
+                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = Model.Id }, null)
+                    </div>
+
                 }
 
                 @if (this.User.Identity.Name == this.Model.Author || this.User.IsInRole("Administrator"))
                 {
-                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = Model.Id }, null)
+                    <div class="edit">
+                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = Model.Id }, null)
+                    </div>
                 }
-            </div>
         </dd>
     </dl>
 </div>
