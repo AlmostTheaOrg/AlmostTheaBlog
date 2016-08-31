@@ -24,5 +24,6 @@
 
         public System.Data.Entity.DbSet<TheaBlog.Models.Category> Categories { get; set; }
 
+
     }
 }
