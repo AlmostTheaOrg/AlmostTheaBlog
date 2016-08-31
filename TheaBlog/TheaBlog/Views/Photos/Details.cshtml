@@ -36,5 +36,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Album", "Details", "Albums", new { id = Model.AlbumId }, new { })
 </p>
