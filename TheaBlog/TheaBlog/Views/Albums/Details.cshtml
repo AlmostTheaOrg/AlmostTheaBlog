@@ -3,9 +3,6 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
     <h4>Album</h4>
     <table class="table">
@@ -16,10 +13,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th></th>
         </tr>
 
         <tr>
@@ -28,9 +21,6 @@
             </td>
             <td>
                 @Html.DisplayFor(model => model.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Date)
             </td>
         </tr>
         

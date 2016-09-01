@@ -43,7 +43,7 @@
                 <span class="modelName">@Html.DisplayNameFor(model => model.Date)</span>  :
                 <span>@Html.DisplayFor(modelItem => item.Date)</span>
             </div>
-            <div>
+            
                 @if (this.User.IsInRole("Administrator"))
                 {
                     <div class="edit">@Html.ActionLink("Edit", "Edit", new { id = item.PhotoId })</div>
@@ -55,7 +55,7 @@
                 {
                     <div class="edit">@Html.ActionLink("Delete", "Delete", new { id = item.PhotoId })</div>
                 }
-            </div>
+           
         </div>
     }
 </div>
