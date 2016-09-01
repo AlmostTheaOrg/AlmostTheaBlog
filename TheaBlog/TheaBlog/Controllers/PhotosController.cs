@@ -22,8 +22,7 @@
         // GET: Photos
         public ActionResult Index()
         {
-
-            return View(db.Photos.ToList());
+            return View(db.Photos.OrderByDescending(p => p.Date).ToList());
         }
 
         // GET: Photos/Details/5
@@ -39,6 +38,8 @@
             {
                 return HttpNotFound();
             }
+
+            photo.Comments = photo.Comments.OrderByDescending(c => c.Date).ToList();
 
             return View(photo);
         }
@@ -94,7 +95,6 @@
                 else
                 {
                     category = new Category(photoViewModel.CategoryName);
-                    //db.Categories.Add(category);
                 }
 
                 photo.Category = category;

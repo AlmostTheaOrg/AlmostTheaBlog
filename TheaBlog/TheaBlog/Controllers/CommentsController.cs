@@ -40,7 +40,7 @@
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.PhotoId = new SelectList(db.Photos, "PhotoId", "Title");
+          //  ViewBag.PhotoId = new SelectList(db.Photos, "PhotoId", "Title");
 
             var comment = new CommentCreateViewModel();
             this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));

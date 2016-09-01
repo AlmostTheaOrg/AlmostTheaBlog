@@ -11,18 +11,21 @@
     <ul class="photo-stack-grid">
         @foreach (var category in Model)
         {
-            <li>
-                <a href="/Categories/Details?name=@category.Name">
-                    <figure class="photo-stack">
-                        <!--
-                        ***change aspect ratio of image - /200/400***
-                        -->
-                        <img src="~/Files?id=@category.Photos.Last().FileId" alt="picture" />
+            if (category.Photos.Count > 0)
+            {
+                <li>
+                    <a href="/Categories/Details?name=@category.Name">
+                        <figure class="photo-stack">
+                            <!--
+                            ***change aspect ratio of image - /200/400***
+                            -->
+                            <img src="~/Files?id=@category.Photos.Last().FileId" alt="picture" />
 
-                    </figure>
-                    <span>@Html.ActionLink(@category.Name, "Details", new { name = category.Name})</span>
-                </a>
-            </li>
+                        </figure>
+                        <span>@Html.ActionLink(@category.Name, "Details", new { name = category.Name })</span>
+                    </a>
+                </li>
+            }
         }
 
     </ul>

@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<TheaBlog.Models.Photo>
+﻿@model List<TheaBlog.Models.Photo>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -11,6 +11,7 @@
 {
     if (item.Image != null)
     {
+        <div>@item.Title</div>
         <div>
             <img class="change-pic" src="~/Files?id=@item.Image.FileId" alt="image" />
         </div>
@@ -18,9 +19,3 @@
 }
    
 </div>
-<p id="cf7_controls">
-    <span class="selected">Image 1</span>
-    <span>Image 2</span>
-    <span>Image 3</span>
-    <span>Image 4</span>
-</p>

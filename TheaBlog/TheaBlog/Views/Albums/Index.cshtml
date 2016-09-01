@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (this.User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
     <tr>
@@ -23,23 +24,38 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AlbumId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AlbumId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AlbumId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @if (this.User.IsInRole("Administrator"))
+                {
+                    <div class="edit">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId })
+                    </div>
+                }
+
+                <div class="edit">
+                    @Html.ActionLink("Details", "Details", new { id = item.AlbumId })
+                </div>
+
+                @if (this.User.IsInRole("Administrator"))
+                {
+                    <div class="edit">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
+                    </div>
+                }
+            </td>
+        </tr>
+    }
 
 </table>
