@@ -2,20 +2,18 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<script>
-    
-</script>
 
 <div id="cf7" class="shadow">
 @foreach (var item in Model)
 {
     if (item.Image != null)
     {
-        <div>@item.Title</div>
-        <div>
-            <img class="change-pic" src="~/Files?id=@item.Image.FileId" alt="image" />
+        <div class="col-md-4">
+            <div>@item.Title</div>
+            <div>
+                <img class="change-pic" src="~/Files?id=@item.Image.FileId" alt="image" />
+            </div>
         </div>
     }
 }
-   
 </div>

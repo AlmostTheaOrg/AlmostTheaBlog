@@ -13,7 +13,7 @@
 
         public ActionResult Index()
         {
-            var photos = db.Photos.OrderByDescending(p => p.Date).Take(3).ToList();
+            var photos = db.Photos.OrderByDescending(p => p.Date).Take(6).ToList();
             return View(photos);
         }
 
